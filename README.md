@@ -42,9 +42,9 @@ GovSchemesHub/
 |    │── llm_chain.py               # LLM pipeline (RAG)
 |    │── .env                       # Environment variables      
 |── .gitignore                      # Ignored files
-|── README.md
+|── README.md                       
 
-    ```
+```
 
     
 ## ⚙️ Installation & Setup
