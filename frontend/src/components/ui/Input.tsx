@@ -40,7 +40,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 ? 'border-error-400'
                 : 'border-slate-300 dark:border-slate-700'
             } bg-white dark:bg-slate-800 px-4 py-2.5 text-sm 
-            text-black dark:text-white 
+            ext-black dark:text-white 
             placeholder:text-slate-400 dark:placeholder:text-slate-500 
             transition-all duration-200 focus:border-primary-500 
             dark:focus:border-primary-400 focus:ring-2 
