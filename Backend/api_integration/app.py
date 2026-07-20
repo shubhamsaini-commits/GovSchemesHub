@@ -6,11 +6,17 @@ from flask_cors import CORS
 from dotenv import load_dotenv, find_dotenv
 from werkzeug.utils import secure_filename
 
-# Load environment variables from the root .env file
-load_dotenv(find_dotenv())
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Load environment variables from the root .env file or KIBO/.env fallback
+dotenv_path = find_dotenv()
+if not dotenv_path:
+    kibo_dotenv = os.path.abspath(os.path.join(current_dir, "..", "KIBO", ".env"))
+    if os.path.exists(kibo_dotenv):
+        dotenv_path = kibo_dotenv
+load_dotenv(dotenv_path)
 
 # Add KIBO to python system path for importing modules from it
-current_dir = os.path.dirname(os.path.abspath(__file__))
 kibo_dir = os.path.abspath(os.path.join(current_dir, "..", "KIBO"))
 if kibo_dir not in sys.path:
     sys.path.append(kibo_dir)
@@ -120,4 +126,4 @@ def schemes():
     })
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=True)
