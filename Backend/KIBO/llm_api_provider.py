@@ -32,3 +32,16 @@ def embed_text(text: str) -> list[float]:
         contents=text
     )
     return result.embeddings[0].values
+
+
+def ask_ai_stream(prompt: str):
+    """
+    Yields content chunks from Gemini LLM in real-time.
+    """
+    response = _client.models.generate_content_stream(
+        model=MODEL_NAME,
+        contents=prompt
+    )
+    for chunk in response:
+        if chunk.text:
+            yield chunk.text
