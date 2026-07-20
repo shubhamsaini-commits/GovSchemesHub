@@ -15,3 +15,8 @@ env/
 
 # Logs
 *.log
+
+# Databases and local uploads
+Backend/data/chroma_db/
+Backend/data/uploads/
+Backend/data/.venv/
