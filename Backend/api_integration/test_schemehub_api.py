@@ -24,7 +24,7 @@ class TestClientInitialization:
             auth_type="api_key",
             api_key="test-key"
         )
-        assert client.base_url == "https://api.test.com"
+        assert client.base_url == "https://govschemeshub-2.onrender.com"
         assert client.auth_type == "api_key"
         assert client.timeout == 30
         client.close()
@@ -32,7 +32,7 @@ class TestClientInitialization:
     def test_init_with_bearer_token(self):
         """Test initialization with bearer token authentication"""
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="bearer",
             bearer_token="test-token"
         )
@@ -42,7 +42,7 @@ class TestClientInitialization:
     def test_init_with_basic_auth(self):
         """Test initialization with basic authentication"""
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="basic",
             username="testuser",
             password="testpass"
@@ -53,7 +53,7 @@ class TestClientInitialization:
     def test_init_with_custom_timeout(self):
         """Test initialization with custom timeout"""
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key",
             timeout=60
@@ -65,7 +65,7 @@ class TestClientInitialization:
         """Test that invalid auth type raises ValueError"""
         with pytest.raises(ValueError, match="Unknown auth_type"):
             SchemHubAPIClient(
-                base_url="https://api.test.com",
+                base_url="https://govschemeshub-2.onrender.com",
                 auth_type="invalid",
                 api_key="test-key"
             )
@@ -74,7 +74,7 @@ class TestClientInitialization:
         """Test that missing API key raises ValueError"""
         with pytest.raises(ValueError, match="API key required"):
             SchemHubAPIClient(
-                base_url="https://api.test.com",
+                base_url="https://govschemeshub-2.onrender.com",
                 auth_type="api_key"
             )
     
@@ -82,7 +82,7 @@ class TestClientInitialization:
         """Test that missing bearer token raises ValueError"""
         with pytest.raises(ValueError, match="Bearer token required"):
             SchemHubAPIClient(
-                base_url="https://api.test.com",
+                base_url="https://govschemeshub-2.onrender.com",
                 auth_type="bearer"
             )
     
@@ -90,7 +90,7 @@ class TestClientInitialization:
         """Test that missing basic auth credentials raises ValueError"""
         with pytest.raises(ValueError, match="Username and password required"):
             SchemHubAPIClient(
-                base_url="https://api.test.com",
+                base_url="https://govschemeshub-2.onrender.com",
                 auth_type="basic"
             )
 
@@ -105,7 +105,7 @@ class TestURLBuilding:
     def test_build_url_with_leading_slash(self):
         """Test URL building with leading slash in endpoint"""
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -116,7 +116,7 @@ class TestURLBuilding:
     def test_build_url_without_leading_slash(self):
         """Test URL building without leading slash in endpoint"""
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -152,7 +152,7 @@ class TestAPIRequests:
         mock_get.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -172,7 +172,7 @@ class TestAPIRequests:
         mock_post.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -192,7 +192,7 @@ class TestAPIRequests:
         mock_put.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -212,7 +212,7 @@ class TestAPIRequests:
         mock_patch.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -232,7 +232,7 @@ class TestAPIRequests:
         mock_delete.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -261,7 +261,7 @@ class TestErrorHandling:
         mock_get.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="invalid-key"
         )
@@ -282,7 +282,7 @@ class TestErrorHandling:
         mock_get.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -303,7 +303,7 @@ class TestErrorHandling:
         mock_get.return_value = mock_response
         
         client = SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -325,7 +325,7 @@ class TestContextManager:
     def test_context_manager(self):
         """Test that context manager properly closes session"""
         with SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         ) as client:
@@ -345,7 +345,7 @@ class TestConfiguration:
     def test_config_validation_valid(self):
         """Test configuration validation with valid config"""
         config = SchemHubConfig(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         )
@@ -364,7 +364,7 @@ class TestConfiguration:
     def test_config_validation_invalid_auth_type(self):
         """Test configuration validation with invalid auth type"""
         config = SchemHubConfig(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="invalid",
             api_key="test-key"
         )
@@ -374,7 +374,7 @@ class TestConfiguration:
     def test_config_validation_missing_api_key(self):
         """Test configuration validation with missing API key"""
         config = SchemHubConfig(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key=None
         )
@@ -435,7 +435,7 @@ class TestIntegration:
         mock_get.return_value = mock_get_resp
         
         with SchemHubAPIClient(
-            base_url="https://api.test.com",
+            base_url="https://govschemeshub-2.onrender.com",
             auth_type="api_key",
             api_key="test-key"
         ) as client:

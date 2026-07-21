@@ -5,6 +5,11 @@ from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 from dotenv import load_dotenv, find_dotenv
 from werkzeug.utils import secure_filename
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app, origins=["https://govschemeshub-2.onrender.com"])# ✅ THIS LINE FIXES YOUR ERROR
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -35,10 +40,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload file size
 ALLOWED_EXTENSIONS = {'.pdf', '.txt', '.docx', '.xlsx', '.xls', '.csv'}
 
-allowed_origins = [
-    "http://localhost:5173",
-    "https://schemehub-a.netlify.app"
-]
+allowed_origins = ["*"]
 env_origins = os.getenv("CORS_ALLOWED_ORIGINS")
 if env_origins:
     allowed_origins.extend([o.strip() for o in env_origins.split(",")])
