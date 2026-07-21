@@ -1,10 +1,5 @@
 # Environment variables
 .env
-.env.*
-**/.env
-**/.env.*
-**/venv/
-**/.venv/
 
 # Python cache
 __pycache__/
@@ -15,13 +10,5 @@ venv/
 env/
 .venv/
 
-# OS files
-.DS_Store
-
-# Logs
-*.log
-
-# Databases and local uploads
-Backend/data/chroma_db/
-Backend/data/uploads/
-Backend/data/.venv/
+# vs code
+.vscode/
