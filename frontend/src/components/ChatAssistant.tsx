@@ -225,11 +225,10 @@ export function ChatAssistant() {
                     )}
                     <div className="max-w-[75%] flex flex-col gap-1">
                       <div
-                        className={`px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                          msg.sender === 'user'
+                        className={`px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
                             ? 'bg-primary-600 text-white rounded-br-md'
                             : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-bl-md border border-slate-200 dark:border-slate-700 shadow-sm'
-                        }`}
+                          }`}
                       >
                         {msg.text || (typing && msg.id === messages[messages.length - 1].id ? '...' : '')}
                       </div>
