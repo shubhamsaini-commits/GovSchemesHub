@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { MessageSquare, X, Send, Sparkles, Bot, User, Paperclip, FileText, Loader2 } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+
 interface Source {
   id: number;
   filename: string;
@@ -56,7 +58,7 @@ export function ChatAssistant() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/upload', {
+      const response = await fetch(`${API_BASE}/api/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -100,7 +102,7 @@ export function ChatAssistant() {
     setTyping(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/query', {
+      const response = await fetch(`${API_BASE}/api/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

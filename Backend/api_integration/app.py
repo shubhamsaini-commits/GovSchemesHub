@@ -35,8 +35,15 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload file size
 ALLOWED_EXTENSIONS = {'.pdf', '.txt', '.docx', '.xlsx', '.xls', '.csv'}
 
-# Configure CORS specifically for the frontend local dev environment
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}}, supports_credentials=True)
+allowed_origins = [
+    "http://localhost:5173",
+    "https://schemehub-a.netlify.app"
+]
+env_origins = os.getenv("CORS_ALLOWED_ORIGINS")
+if env_origins:
+    allowed_origins.extend([o.strip() for o in env_origins.split(",")])
+
+CORS(app, resources={r"/api/*": {"origins": allowed_origins}}, supports_credentials=True)
 
 def allowed_file(filename):
     ext = os.path.splitext(filename)[1].lower()
